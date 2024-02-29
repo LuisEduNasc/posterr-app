@@ -12,7 +12,7 @@ export function Home({ profile, myUser }) {
   const urlFilter = searchParams.get('posts') ?? '';
 
   const { data: posts, isLoading, isError } = useQuery({
-    queryKey: ['get-users', urlFilter],
+    queryKey: ['get-posts', urlFilter],
     queryFn: async () => {
       const usersData = await fetch(`http://localhost:3333/users`);
       const postsData = await fetch(`http://localhost:3333/posts`);

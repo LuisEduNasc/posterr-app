@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { useParams } from "react-router-dom";
+import { useState, useRef } from 'react';
+import { useParams, useNavigate } from "react-router-dom";
 import { keepPreviousData, useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { Loader2, Plus, UserRoundCheck, UserRoundX } from 'lucide-react';
 
@@ -14,6 +14,10 @@ export function Profile({ open = false, myUser }) {
   }
 
   const [follow, setFollow] = useState(false);
+
+  const navigate = useNavigate();
+
+  const modalRef = useRef(null);
 
   const params = useParams();
   const userId = params.user_id || ''
@@ -88,9 +92,21 @@ export function Profile({ open = false, myUser }) {
     mutateAsync({ follow })
   };
 
+  function handleClickOutside(event) {
+    if (modalRef.current && !modalRef.current.contains(event.target)) {
+      navigate('/');
+    }
+  };
+
   return (
-    <div className="fixed top-0 left-0 z-50 inset-0 bg-black bg-opacity-60 backdrop-blur-sm transition-opacity duration-300 justify-center items-center w-full h-full overflow-y-auto overflow-x-hidden bg-zinc-800 p-8 rounded-md">
-      <div className='bg-zinc-700 p-8 rounded-md w-[500px] m-auto mt-10 antialiased shadow-2xl'>
+    <div
+      className="fixed top-0 left-0 z-50 inset-0 bg-black bg-opacity-60 backdrop-blur-sm transition-opacity duration-300 justify-center items-center w-full h-full overflow-y-auto overflow-x-hidden bg-zinc-800 p-8 rounded-md"
+      onClick={handleClickOutside}
+    >
+      <div
+        className='bg-zinc-700 p-8 rounded-md w-[500px] m-auto mt-10 antialiased shadow-2xl'
+        ref={modalRef}
+      >
         {
           isErrorUser || isLoadingUser ? (
             <DefaultMessage message={isErrorUser ? "Something went wrong, Try again" : "Loading..."} />
