@@ -14,6 +14,9 @@
  ## Stack used
   ReactJs, React Query, JavaScript, Tailwindcss
 
+ ## Info
+  The serve.js file is been used as the data for the project, with json-server we can emulate a server and trigger requests towards it.
+
 # React + Vite
 
 Currently, two official plugins are available:
