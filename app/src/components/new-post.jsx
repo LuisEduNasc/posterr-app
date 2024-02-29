@@ -4,7 +4,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { Button } from './button';
 import { cn } from '../../lib/utils';
 
-export function NewPost({ className, myUser }) {
+export function NewPost({ className, author }) {
   const inputRef = useRef(null);
 
   const queryClient = useQueryClient()
@@ -14,8 +14,8 @@ export function NewPost({ className, myUser }) {
       await fetch('http://localhost:3333/posts', {
         method: 'POST',
         body: JSON.stringify({
-          username: myUser.username,
-          user_id: myUser.id,
+          username: author.username,
+          user_id: author.id,
           post,
           type: 'post'
         }),
@@ -44,9 +44,11 @@ export function NewPost({ className, myUser }) {
       />
 
       <Button
-        text='Post' onClick={handleCreatePost}
+        onClick={handleCreatePost}
         className='float-right'
-      />
+      >
+        <p>Post</p>
+      </Button>
     </div>
   );
 };

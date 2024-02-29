@@ -80,6 +80,13 @@
       "username": "@me",
       "post": "This is my new post !!!",
       "type": "post"
+    },
+    {
+      "id": "0e29",
+      "username": "@maxTweets",
+      "user_id": "9c47",
+      "post": "A new post from this user!",
+      "type": "post"
     }
   ]
 }

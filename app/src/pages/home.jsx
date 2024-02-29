@@ -45,7 +45,7 @@ export function Home({ profile, myUser }) {
       <Header />
 
       <main className='max-w-2xl mx-auto space-y-5'>
-        <NewPost myUser={myUser} />
+        <NewPost author={myUser} />
 
         <hr />
 

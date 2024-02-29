@@ -151,7 +151,7 @@ export function Profile({ open = false, myUser }) {
               <hr className='my-10'/>
 
               <div className='mb-10'>
-                  <NewPost />
+                  <NewPost author={user.userProfile} />
 
                   {
                     posts?.map((post) => (
