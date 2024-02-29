@@ -1,17 +1,27 @@
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
+import { useSearchParams } from "react-router-dom";
 
 import { Header } from './components/header';
 import { Post } from './components/post';
 import { NewPost } from './components/new-post';
 
 export function App() {
-  const { data: posts, isLoading, isError } = useQuery({
-    queryKey: ['get-posts'],
-    queryFn: async () => {
-      const res = await fetch(`http://localhost:3333/posts`);
-      const data = await res.json();
+  const [searchParams,] = useSearchParams();
+  const urlFilter = searchParams.get('posts') ?? '';
 
-      return data.reverse();
+  const { data: posts, isLoading, isError } = useQuery({
+    queryKey: ['get-users', urlFilter],
+    queryFn: async () => {
+      const usersData = await fetch(`http://localhost:3333/users`);
+      const postsData = await fetch(`http://localhost:3333/posts`);
+      const users = await usersData.json();
+      const posts = await postsData.json();
+
+      const myUser = users?.find((user) => user.username === 'me');
+
+      return urlFilter === 'following'
+        ? posts.filter((post) => myUser.following.includes(post.user_id)).reverse()
+        : posts.reverse();
     },
     placeholderData: keepPreviousData,
     staleTime: 1000 * 60

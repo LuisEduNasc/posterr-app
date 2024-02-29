@@ -14,6 +14,7 @@ export function NewPost() {
         method: 'POST',
         body: JSON.stringify({
           username: 'me',
+          id: "me13579",
           post
         }),
       })
