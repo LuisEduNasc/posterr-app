@@ -4,6 +4,7 @@ import { useSearchParams } from "react-router-dom";
 import { Header } from './components/header';
 import { Post } from './components/post';
 import { NewPost } from './components/new-post';
+import { DefaultMessage } from './components/default-message';
 
 export function App() {
   const [searchParams,] = useSearchParams();
@@ -29,13 +30,13 @@ export function App() {
 
   if (isError) {
     return (
-      <p>Something went wrong, Try again</p>
+      <DefaultMessage message="Something went wrong, Try again" />
     );
   }
 
   if (isLoading) {
     return (
-      <p>Loading...</p>
+      <DefaultMessage message="Loading..." />
     );
   }
 
