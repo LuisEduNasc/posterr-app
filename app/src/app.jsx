@@ -11,7 +11,7 @@ export function App() {
       const res = await fetch(`http://localhost:3333/posts`);
       const data = await res.json();
 
-      return data;
+      return data.reverse();
     },
     placeholderData: keepPreviousData,
     staleTime: 1000 * 60
