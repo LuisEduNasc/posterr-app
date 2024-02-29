@@ -4,28 +4,51 @@
       "username": "@me",
       "date_joined": "December 25, 2022",
       "followers": [],
-      "following": ["2eb4", "9c47"],
+      "followers_count": 0,
+      "following": [
+        "2eb4"
+      ],
+      "following_count": 1,
       "id": "me13579"
     },
     {
       "username": "@johndoe123",
       "date_joined": "March 25, 2021",
-      "followers": ["me13579", "2eb4"],
-      "following": ["2eb4"],
+      "followers": [
+        "me13579",
+        "2eb4"
+      ],
+      "followers_count": 2,
+      "following": [
+        "2eb4"
+      ],
+      "following_count": 1,
       "id": "0c3c"
     },
     {
       "username": "@sarah_smiles",
       "date_joined": "April 12, 2021",
-      "followers": ["0c3c", "me13579"],
-      "following": ["9c47", "0c3c"],
+      "followers": [
+        "0c3c",
+        "me13579"
+      ],
+      "followers_count": 2,
+      "following": [
+        "9c47",
+        "0c3c"
+      ],
+      "following_count": 2,
       "id": "2eb4"
     },
     {
       "username": "@maxTweets",
       "date_joined": "May 5, 2021",
-      "followers": ["2eb4", "me13579"],
+      "followers": [
+        "2eb4"
+      ],
+      "followers_count": 1,
       "following": [],
+      "following_count": 0,
       "id": "9c47"
     }
   ],

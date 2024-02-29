@@ -15,7 +15,7 @@ export function Header() {
   };
 
   return (
-    <div className='max-w-[1200px] mx-auto flex items-center justify-between'>
+    <header className='max-w-[1200px] mx-auto flex items-center justify-between mb-10'>
       <div className='flex items-center'>
         <TwitterIcon className='mr-2'/>
         <h1>Posterr</h1>
@@ -23,12 +23,17 @@ export function Header() {
 
       <div className='flex items-center'>
         <Button
-          text={urlFilter === 'following' ? 'Following' : 'All'}
           onClick={handlePostsList}
           className='mr-4'
-        />
+        >
+          {
+            urlFilter === 'following'
+              ? <p>Following</p>
+              : <p>All</p>
+          }
+        </Button>
         <p>Posts</p>
       </div>
-    </div>
+    </header>
   );
 };

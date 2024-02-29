@@ -1,12 +1,13 @@
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { useSearchParams } from "react-router-dom";
 
-import { Header } from './components/header';
-import { Post } from './components/post';
-import { NewPost } from './components/new-post';
-import { DefaultMessage } from './components/default-message';
+import { Header } from '../components/header';
+import { Post } from '../components/post';
+import { NewPost } from '../components/new-post';
+import { DefaultMessage } from '../components/default-message';
+import { Profile } from '../components/profile';
 
-export function App() {
+export function Home({ profile, myUser }) {
   const [searchParams,] = useSearchParams();
   const urlFilter = searchParams.get('posts') ?? '';
 
@@ -18,11 +19,10 @@ export function App() {
       const users = await usersData.json();
       const posts = await postsData.json();
 
-      const myUser = users?.find((user) => user.username === 'me');
+      const me = users.find((user) => user.id === myUser.id);
 
-      return urlFilter === 'following'
-        ? posts.filter((post) => myUser.following.includes(post.user_id)).reverse()
-        : posts.reverse();
+      const filteredPosts = urlFilter === 'following' ? posts.filter((post) => me?.following.includes(post.user_id)) : posts
+      return filteredPosts.reverse();
     },
     placeholderData: keepPreviousData,
     staleTime: 1000 * 60
@@ -41,20 +41,22 @@ export function App() {
   }
 
   return (
-    <div className='py-10 space-y-8'>
+    <div className='relative py-10'>
       <Header />
 
       <main className='max-w-2xl mx-auto space-y-5'>
-        <NewPost />
+        <NewPost myUser={myUser} />
 
         <hr />
 
         {
           posts.map((post) => (
-            <Post key={post.id} post={post}/>
+            <Post key={post.id} post={post} />
           ))
         }
       </main>
+
+      {profile ? <Profile open={profile} myUser={myUser} /> : null}
     </div>
   )
 }
