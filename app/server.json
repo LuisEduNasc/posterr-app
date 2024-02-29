@@ -1,0 +1,39 @@
+{
+  "users": [
+    {
+      "username": "johndoe123",
+      "date_joined": "March 25, 2021",
+      "followers": [],
+      "following": [],
+      "posts": []
+    },
+    {
+      "username": "sarah_smiles",
+      "date_joined": "April 12, 2021",
+      "followers": [],
+      "following": [],
+      "posts": []
+    },
+    {
+      "username": "maxTweets",
+      "date_joined": "May 5, 2021",
+      "followers": [],
+      "following": [],
+      "posts": []
+    }
+  ],
+  "posts": [
+    {
+      "username": "johndoe123",
+      "post": "This is my first tweet! #excited"
+    },
+    {
+      "username": "johndoe123",
+      "post": "Hello world, what's the news???"
+    },
+    {
+      "username": "maxTweets",
+      "post": "As I sit by the window, watching the raindrops cascade down, I can't help but feel a sense of tranquility wash over me. There's something profoundly soothing about the rhythmic patter of rain against the glass, a melody that speaks to the depths of my soul. It's in these moments of quiet contemplation that I find solace, a respite from the chaos of daily life. Each raindrop carries with it a whisper of renewal, a promise of growth and transformation. And as I lose myself in the gentle embrace of the storm, I'm reminded of the beauty that lies in embracing the ebb and flow of life's ever-changing currents. In the midst of uncertainty, there is always the possibility of new beginnings, of finding beauty in unexpected places. So let the rain wash away the remnants of yesterday, and let us greet tomorrow with open arms, ready to embrace whatever adventures lie ahead. #rainydays #reflection #serenity #newbeginnings #life"
+    }
+  ]
+}
