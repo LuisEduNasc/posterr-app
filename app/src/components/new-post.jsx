@@ -7,7 +7,7 @@ import { cn } from '../../lib/utils';
 export function NewPost({ className, author }) {
   const inputRef = useRef(null);
 
-  const queryClient = useQueryClient()
+  const queryClient = useQueryClient();
 
   const { mutateAsync } = useMutation({
     mutationFn: async ({ post }) => {

@@ -87,6 +87,21 @@
       "user_id": "9c47",
       "post": "A new post from this user!",
       "type": "post"
+    },
+    {
+      "id": "21e2",
+      "username": "@me",
+      "user_id": "me13579",
+      "post": "@maxTweets - A new post from this user!",
+      "comment": "this is my quote!",
+      "type": "quote"
+    },
+    {
+      "id": "bdab",
+      "username": "@me",
+      "user_id": "me13579",
+      "post": "@maxTweets - A new post from this user!",
+      "type": "repost"
     }
   ]
 }

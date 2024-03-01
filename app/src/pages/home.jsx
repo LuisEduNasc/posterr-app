@@ -51,7 +51,11 @@ export function Home({ profile, myUser }) {
 
         {
           posts.map((post) => (
-            <Post key={post.id} post={post} />
+            <Post
+              key={post.id}
+              post={post}
+              author={myUser}
+            />
           ))
         }
       </main>

@@ -175,6 +175,7 @@ export function Profile({ open = false, myUser }) {
                         key={post.id}
                         post={post}
                         className='my-2'
+                        author={user.userProfile}
                       />
                     ))
                   }
