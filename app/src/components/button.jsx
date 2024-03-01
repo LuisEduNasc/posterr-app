@@ -1,6 +1,6 @@
 import { cn } from '../../lib/utils';
 
-export function Button({ className, onClick, children }) {
+export function Button({ className, onClick, disabled, children }) {
   return (
     <button
       className={cn(
@@ -8,6 +8,7 @@ export function Button({ className, onClick, children }) {
         className
       )}
       onClick={onClick}
+      disabled={disabled}
     >
       {children}
     </button>

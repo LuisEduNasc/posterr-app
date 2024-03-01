@@ -104,7 +104,7 @@ export function Profile({ open = false, myUser }) {
       onClick={handleClickOutside}
     >
       <div
-        className='bg-zinc-700 p-8 rounded-md w-[500px] m-auto mt-10 antialiased shadow-2xl'
+        className='bg-slate-800 p-8 rounded-md w-[500px] m-auto mt-10 antialiased shadow-2xl'
         ref={modalRef}
       >
         {
@@ -112,24 +112,28 @@ export function Profile({ open = false, myUser }) {
             <DefaultMessage message={isErrorUser ? "Something went wrong, Try again" : "Loading..."} />
           ) : (
             <div>
-              <Button onClick={handleFollow}>
-                <div className='flex items-center'>
-                  {
-                    follow
-                      ? (
-                        <>
-                          <UserRoundX  size={14} className='mr-2'/>
-                          <p>Unfollow</p>
-                        </>
-                      ) :(
-                        <>
-                          <UserRoundCheck  size={14} className='mr-2'/>
-                          <p>Follow</p>
-                        </>
-                      )
-                  }
-                </div>
-              </Button>
+              {
+                user.me.id !== user.userProfile.id ? (
+                  <Button onClick={handleFollow}>
+                    <div className='flex items-center'>
+                      {
+                        follow
+                          ? (
+                            <>
+                              <UserRoundX  size={14} className='mr-2'/>
+                              <p>Unfollow</p>
+                            </>
+                          ) :(
+                            <>
+                              <UserRoundCheck  size={14} className='mr-2'/>
+                              <p>Follow</p>
+                            </>
+                          )
+                      }
+                    </div>
+                  </Button>
+                ) : null
+              }
 
               <div className='flex justify-between mb-10'>
                 <div>

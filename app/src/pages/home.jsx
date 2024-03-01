@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { useSearchParams } from "react-router-dom";
 
@@ -8,6 +9,7 @@ import { DefaultMessage } from '../components/default-message';
 import { Profile } from '../components/profile';
 
 export function Home({ profile, myUser }) {
+  const [me, setMe] = useState(null);
   const [searchParams,] = useSearchParams();
   const urlFilter = searchParams.get('posts') ?? '';
 
@@ -19,7 +21,8 @@ export function Home({ profile, myUser }) {
       const users = await usersData.json();
       const posts = await postsData.json();
 
-      const me = users.find((user) => user.id === myUser.id);
+      const myUserData = users.find((user) => user.id === myUser.id);
+      setMe(myUserData)
 
       const filteredPosts = urlFilter === 'following' ? posts.filter((post) => me?.following.includes(post.user_id)) : posts
       return filteredPosts.reverse();
@@ -45,7 +48,7 @@ export function Home({ profile, myUser }) {
       <Header />
 
       <main className='max-w-2xl mx-auto space-y-5'>
-        <NewPost author={myUser} />
+        <NewPost author={me} />
 
         <hr />
 
@@ -54,13 +57,13 @@ export function Home({ profile, myUser }) {
             <Post
               key={post.id}
               post={post}
-              author={myUser}
+              author={me}
             />
           ))
         }
       </main>
 
-      {profile ? <Profile open={profile} myUser={myUser} /> : null}
+      {profile ? <Profile open={profile} myUser={me} /> : null}
     </div>
   )
 }

@@ -9,7 +9,9 @@
         "2eb4"
       ],
       "following_count": 1,
-      "id": "me13579"
+      "post_count": 1,
+      "id": "me13579",
+      "posts_count": 1
     },
     {
       "username": "@johndoe123",
@@ -23,6 +25,7 @@
         "2eb4"
       ],
       "following_count": 1,
+      "posts_count": 2,
       "id": "0c3c"
     },
     {
@@ -38,6 +41,7 @@
         "0c3c"
       ],
       "following_count": 2,
+      "posts_count": 0,
       "id": "2eb4"
     },
     {
@@ -49,6 +53,7 @@
       "followers_count": 1,
       "following": [],
       "following_count": 0,
+      "posts_count": 3,
       "id": "9c47"
     }
   ],
@@ -58,6 +63,7 @@
       "username": "@johndoe123",
       "post": "This is my first tweet! #excited",
       "type": "post",
+      "date": "February 29, 2024",
       "id": "aedb"
     },
     {
@@ -65,6 +71,7 @@
       "username": "@johndoe123",
       "post": "Hello world, what's the news???",
       "type": "post",
+      "date": "February 29, 2024",
       "id": "3b3d"
     },
     {
@@ -72,6 +79,7 @@
       "username": "@maxTweets",
       "post": "As I sit by the window, watching the raindrops cascade down, I can't help but feel a sense of tranquility wash over me. There's something profoundly soothing about the rhythmic patter of rain against the glass, a melody that speaks to the depths of my soul. It's in these moments of quiet contemplation that I find solace, a respite from the chaos of daily life. Each raindrop carries with it a whisper of renewal, a promise of growth and transformation. And as I lose myself in the gentle embrace of the storm, I'm reminded of the beauty that lies in embracing the ebb and flow of life's ever-changing currents. In the midst of uncertainty, there is always the possibility of new beginnings, of finding beauty in unexpected places. So let the rain wash away the remnants of yesterday, and let us greet tomorrow with open arms, ready to embrace whatever adventures lie ahead. #rainydays #reflection #serenity #newbeginnings #life",
       "type": "post",
+      "date": "February 29, 2024",
       "id": "0dcb"
     },
     {
@@ -79,6 +87,7 @@
       "user_id": "me13579",
       "username": "@me",
       "post": "This is my new post !!!",
+      "date": "February 29, 2024",
       "type": "post"
     },
     {
@@ -86,22 +95,15 @@
       "username": "@maxTweets",
       "user_id": "9c47",
       "post": "A new post from this user!",
+      "date": "February 29, 2024",
       "type": "post"
     },
     {
-      "id": "21e2",
-      "username": "@me",
-      "user_id": "me13579",
-      "post": "@maxTweets - A new post from this user!",
-      "comment": "this is my quote!",
-      "type": "quote"
-    },
-    {
-      "id": "bdab",
-      "username": "@me",
-      "user_id": "me13579",
-      "post": "@maxTweets - A new post from this user!",
-      "type": "repost"
+      "id": "8e47",
+      "username": "@maxTweets",
+      "user_id": "9c47",
+      "post": "another post",
+      "type": "post"
     }
   ]
 }
