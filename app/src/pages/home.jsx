@@ -1,19 +1,22 @@
 import { useState } from 'react';
-import { keepPreviousData, useQuery } from "@tanstack/react-query";
-import { useSearchParams } from "react-router-dom";
+import { keepPreviousData, useQuery } from '@tanstack/react-query';
+import { useSearchParams } from 'react-router-dom';
 
-import { Header } from '../components/header';
-import { Post } from '../components/post';
-import { NewPost } from '../components/new-post';
-import { DefaultMessage } from '../components/default-message';
-import { Profile } from '../components/profile';
+import { Header } from 'components/header';
+import { Post } from 'components/post';
+import { NewPost } from 'components/new-post';
+import { DefaultMessage } from 'components/default-message';
 
-export function Home({ profile, myUser }) {
+export function Home({ myUser, children }) {
   const [me, setMe] = useState(null);
-  const [searchParams,] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const urlFilter = searchParams.get('posts') ?? '';
 
-  const { data: posts, isLoading, isError } = useQuery({
+  const {
+    data: posts,
+    isLoading,
+    isError,
+  } = useQuery({
     queryKey: ['get-posts', urlFilter],
     queryFn: async () => {
       const usersData = await fetch(`http://localhost:3333/users`);
@@ -22,25 +25,24 @@ export function Home({ profile, myUser }) {
       const posts = await postsData.json();
 
       const myUserData = users.find((user) => user.id === myUser.id);
-      setMe(myUserData)
+      setMe(myUserData);
 
-      const filteredPosts = urlFilter === 'following' ? posts.filter((post) => me?.following.includes(post.user_id)) : posts
+      const filteredPosts =
+        urlFilter === 'following'
+          ? posts.filter((post) => me?.following.includes(post.user_id))
+          : posts;
       return filteredPosts.reverse();
     },
     placeholderData: keepPreviousData,
-    staleTime: 1000 * 60
+    staleTime: 1000 * 60,
   });
 
   if (isError) {
-    return (
-      <DefaultMessage message="Something went wrong, Try again" />
-    );
+    return <DefaultMessage message='Something went wrong, Try again' />;
   }
 
   if (isLoading) {
-    return (
-      <DefaultMessage message="Loading..." />
-    );
+    return <DefaultMessage message='Loading...' />;
   }
 
   return (
@@ -52,18 +54,12 @@ export function Home({ profile, myUser }) {
 
         <hr />
 
-        {
-          posts.map((post) => (
-            <Post
-              key={post.id}
-              post={post}
-              author={me}
-            />
-          ))
-        }
+        {posts.map((post) => (
+          <Post key={post.id} post={post} author={me} />
+        ))}
       </main>
 
-      {profile ? <Profile open={profile} myUser={me} /> : null}
+      {children}
     </div>
-  )
+  );
 }

@@ -6,12 +6,13 @@
       "followers": [],
       "followers_count": 0,
       "following": [
-        "2eb4"
+        "2eb4",
+        "9c47"
       ],
-      "following_count": 1,
+      "following_count": 2,
       "post_count": 1,
       "id": "me13579",
-      "posts_count": 1
+      "posts_count": 2
     },
     {
       "username": "@johndoe123",
@@ -48,9 +49,10 @@
       "username": "@maxTweets",
       "date_joined": "May 5, 2021",
       "followers": [
-        "2eb4"
+        "2eb4",
+        "me13579"
       ],
-      "followers_count": 1,
+      "followers_count": 2,
       "following": [],
       "following_count": 0,
       "posts_count": 3,
@@ -103,6 +105,13 @@
       "username": "@maxTweets",
       "user_id": "9c47",
       "post": "another post",
+      "type": "post"
+    },
+    {
+      "id": "0356",
+      "username": "@me",
+      "user_id": "me13579",
+      "post": "test new post!",
       "type": "post"
     }
   ]

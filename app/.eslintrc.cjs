@@ -17,5 +17,6 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
+    'react/jsx-max-depth': ['error', { max: 5 }],
   },
-}
+};
